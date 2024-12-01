@@ -1,25 +1,22 @@
 <template>
-  <ion-item v-if="message" :routerLink="'/message/' + message.id" :detail="false" class="list-item">
-    <div slot="start" :class="!message.read ? 'dot dot-unread' : 'dot'"></div>
+  <ion-item v-if="message" :detail="false" class="list-item">
     <ion-label class="ion-text-wrap">
-      <h2>
-        {{ message.fromName }}
-        <span class="date">
-          <ion-note>{{ message.date }}</ion-note>
-          <ion-icon aria-hidden="true" :icon="chevronForward" size="small" v-if="isIos()"></ion-icon>
-        </span>
-      </h2>
-      <h3>{{ message.subject }}</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
+      <ion-img
+        src="https://static.vecteezy.com/system/resources/previews/003/611/805/non_2x/sound-speaker-icon-on-white-background-free-vector.jpg"
+        alt="icon"
+        class="iconSound"
+      ></ion-img>
+      <h2>Familia: {{ message.group }}</h2>
+      <h2>Nombre: {{ message.en }}</h2>
+      <h3>Ubicación: {{ message.loc }}</h3>
+      <h3>Descubridor: {{ message.rec }}</h3>
     </ion-label>
   </ion-item>
 </template>
 
 <script setup lang="ts">
-import { IonIcon, IonItem, IonLabel, IonNote } from '@ionic/vue';
-import { chevronForward } from 'ionicons/icons';
+import { IonIcon, IonItem, IonLabel, IonNote } from "@ionic/vue";
+import { chevronForward } from "ionicons/icons";
 
 defineProps({
   message: Object,
@@ -27,7 +24,7 @@ defineProps({
 
 const isIos = () => {
   const win = window as any;
-  return win && win.Ionic && win.Ionic.mode === 'ios';
+  return win && win.Ionic && win.Ionic.mode === "ios";
 };
 </script>
 
@@ -45,7 +42,7 @@ const isIos = () => {
 .list-item h2 {
   font-weight: 600;
   margin: 0;
-  
+
   /**
    * With larger font scales
    * the date/time should wrap to the next
@@ -95,5 +92,30 @@ const isIos = () => {
 
 .list-item .dot-unread {
   background: var(--ion-color-primary);
+}
+
+.ion-text-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.ion-text-wrap h2 {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.ion-text-wrap .iconSound {
+  height: 5rem !important;
+  width: 5rem !important;
+  border-radius: 1rem;
+}
+
+.ion-text-wrap .iconSound img{
+  border-radius: 1rem;
 }
 </style>
