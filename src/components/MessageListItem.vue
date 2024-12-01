@@ -2,7 +2,7 @@
   <ion-item v-if="message" :detail="false" class="list-item">
     <ion-label class="ion-text-wrap">
       <ion-img
-        src="https://static.vecteezy.com/system/resources/previews/003/611/805/non_2x/sound-speaker-icon-on-white-background-free-vector.jpg"
+        src="/70.png"
         alt="icon"
         class="iconSound"
       ></ion-img>
@@ -102,7 +102,7 @@ const isIos = () => {
   align-items: center;
 }
 
-.ion-text-wrap h2 {
+.ion-text-wrap h2, .ion-text-wrap h3 {
   width: 100%;
   text-align: center;
   justify-content: center;
